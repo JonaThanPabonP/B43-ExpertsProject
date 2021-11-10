@@ -19,7 +19,7 @@ app.get('/get-experts', (req,res)=>{
 
 app.get('/get-expert/:id', (req,res)=>{
     const eid = req.params.id;
-    db.getExpert(eid, function (doc){
+    db.getExpert(eid, function(doc){
         res.send(doc);
     })
 })

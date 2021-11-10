@@ -21,7 +21,7 @@ function getExpert(eid, callback) {
     return db.collection('experts').doc(eid).get()
         .then((refDoc)=>{
             if (refDoc.exists) {
-                callback(refDoc.data);
+                callback(refDoc.data());
             }
         })
         .catch((err)=>{
