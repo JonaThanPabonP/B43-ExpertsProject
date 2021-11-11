@@ -45,10 +45,38 @@ function addExpert(expert, callback) {
 }
 
 
+// Actualizar expertos set()
+function replaceExpert(eid, expert, callback) {
+    return db.collection('experts').doc(eid).set(expert)
+        .then(()=>{
+            callback('Success to update replacing an expert');
+        })
+        .catch((err)=>{
+            console.error('Error to replace expert',err);
+            callback('Error to replace expert',err);
+        })
+}
 
+// Actualizar exppertos update()
+function updateExpert(eid, expert, callback) {
+    return db.collection('experts').doc(eid).update(expert)
+        .then(()=>{
+            callback('Success to update an expert');
+        })
+        .catch((err)=>{
+            console.error('Error to update expert',err);
+            callback('Error to update expert',err);
+        })
+}
+
+
+// Eliminar expertos
 
 
 module.exports = {
     getExperts,
-    getExpert
+    getExpert,
+    addExpert,
+    replaceExpert,
+    updateExpert
 }

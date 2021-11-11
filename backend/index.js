@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-app.use(express.static('public'))
+app.use(express.static('public'));
+app.use(express.json());
 const dbE = require('./src/db/crudExperts.js');
 
 
@@ -31,6 +32,28 @@ app.get('/add-expert', (req,res)=>{
         res.send(response);
     })
 })
+
+
+// Método PUT
+app.put('/replace-expert/:id', (req,res)=>{
+    const expert = req.body;
+    const eid = req.params.id;
+    dbE.replaceExpert(eid, expert, function(response){
+        res.send(response);
+    })
+})
+
+
+// Método PATCH
+app.patch('/update-expert/:id', (req,res)=>{
+    const expert = req.body;
+    const eid = req.params.id;
+    dbE.updateExpert(eid, expert, function(response){
+        res.send(response);
+    })
+})
+
+
 
 
 app.listen(port, ()=>{
