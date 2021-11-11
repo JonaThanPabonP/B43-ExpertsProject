@@ -32,6 +32,22 @@ function getExpert(eid, callback) {
 
 
 
+// Añadir Expertos
+function addExpert(expert, callback) {
+    return db.collection('experts').add(expert)
+        .then(()=>{
+            callback('Success to create an expert');
+        })
+        .catch((err)=>{
+            console.error('Error to add expert',err);
+            callback('Error to add expert',err);
+        })
+}
+
+
+
+
+
 module.exports = {
     getExperts,
     getExpert

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 app.use(express.static('public'))
-const db = require('./src/db/crudExperts.js');
+const dbE = require('./src/db/crudExperts.js');
 
 
 app.get('/', function (req, res) {
@@ -10,17 +10,25 @@ app.get('/', function (req, res) {
 });
 
 app.get('/get-experts', (req,res)=>{
-    db.getExperts(function (arrayExperts){
+    dbE.getExperts(function (arrayExperts){
         var arreglo = arrayExperts;
         res.send(arreglo);
     });
-    res.send('Se consultó el documento '+eid);
 })
 
 app.get('/get-expert/:id', (req,res)=>{
     const eid = req.params.id;
-    db.getExpert(eid, function(doc){
+    dbE.getExpert(eid, function(doc){
         res.send(doc);
+    })
+})
+
+
+// Método POST
+app.get('/add-expert', (req,res)=>{
+    const expert = req.body;
+    dbE.addExpert(expert, function(response){
+        res.send(response);
     })
 })
 
