@@ -25,8 +25,8 @@ function getExpert(eid, callback) {
             }
         })
         .catch((err)=>{
-            console.error('Error to get user',err);
-            callback('Error to get user',err);
+            console.error('Error to get expert',err);
+            callback('Error to get expert',err);
         })
 }
 
@@ -57,7 +57,7 @@ function replaceExpert(eid, expert, callback) {
         })
 }
 
-// Actualizar exppertos update()
+// Actualizar expertos update()
 function updateExpert(eid, expert, callback) {
     return db.collection('experts').doc(eid).update(expert)
         .then(()=>{
