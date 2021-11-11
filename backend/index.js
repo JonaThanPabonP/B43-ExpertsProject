@@ -54,7 +54,17 @@ app.patch('/update-expert/:id', (req,res)=>{
 })
 
 
+// Método DELETE
+app.delete('/delete-expert/:id', (req,res)=>{
+    const eid = req.params.id;
+    dbE.deleteExpert(eid, function(response){
+        res.send(response);
+    })
+})
 
+
+
+// ------------------------------------------
 
 app.listen(port, ()=>{
     console.log('My port is listening', port);

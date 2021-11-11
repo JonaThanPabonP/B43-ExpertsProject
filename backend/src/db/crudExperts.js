@@ -71,12 +71,22 @@ function updateExpert(eid, expert, callback) {
 
 
 // Eliminar expertos
-
+function deleteExpert(eid, callback) {
+    return db.collection('experts').doc(eid).delete()
+        .then(()=>{
+            callback('Success to delete an expert');
+        })
+        .catch((err)=>{
+            console.error('Error to delete expert',err);
+            callback('Error to delete expert',err);
+        })
+}
 
 module.exports = {
     getExperts,
     getExpert,
     addExpert,
     replaceExpert,
-    updateExpert
+    updateExpert,
+    deleteExpert
 }
