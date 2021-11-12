@@ -82,11 +82,29 @@ function deleteExpert(eid, callback) {
         })
 }
 
+
+// Buscar filtrado expertos
+function searchExpert(location, callback) {
+    return db.collection('experts').where("location", "==", location).get()
+        .then((refDoc)=>{
+            var arrayExperts = []
+            callback('Success to find experts');
+        })
+        .catch((err)=>{
+            console.error('Error to find experts',err);
+            callback('Error to find experts',err);
+        })
+}
+
+
+
+
 module.exports = {
     getExperts,
     getExpert,
     addExpert,
     replaceExpert,
     updateExpert,
-    deleteExpert
+    deleteExpert,
+    searchExpert
 }
