@@ -77,7 +77,7 @@ router.delete('/:id', (req,res)=>{
 
 
 // Método filtrado por ubicación
-router.get('/:location', (req,res)=>{
+router.get('/search/:location', (req,res)=>{
     const location = req.params.location;
     dbE.searchExpert(location, function (arrayExperts){
         res.send(arrayExperts);

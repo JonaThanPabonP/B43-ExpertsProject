@@ -88,7 +88,10 @@ function searchExpert(location, callback) {
     return db.collection('experts').where("location", "==", location).get()
         .then((refDoc)=>{
             var arrayExperts = []
-            callback('Success to find experts');
+            refDoc.forEach(doc => {                
+                arrayExperts.push(doc.data());
+            })
+            callback(arrayExperts);
         })
         .catch((err)=>{
             console.error('Error to find experts',err);
