@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Cristobal Rodríguez",
+        "location": "Bucaramanga",
+        "id": "1"
+    },
+    {
+        "name": "Carolina Rincón",
+        "location": "Bogotá",
+        "id": "2"
+    },
+    {
+        "name": "Fabian Ricardo",
+        "location": "Medellín",
+        "id": "3"
+    }
+]
