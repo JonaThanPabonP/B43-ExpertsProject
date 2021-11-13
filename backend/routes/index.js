@@ -7,7 +7,7 @@ const routerMockExperts = require('./mockExpertsRouter.js');
 function RoutesAPI(app) {
     app.use('/experts', routerExperts);
     app.use('/users', routerUsers);
-    app.use('/moke/experts', routerMockExperts);
+    app.use('/mock/experts', routerMockExperts);
 }
 
 
