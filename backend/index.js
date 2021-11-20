@@ -1,4 +1,4 @@
-const routerAPI = require('./routes')
+const routerAPI = require('./routes');
 const express = require('express');
 const app = express();
 
