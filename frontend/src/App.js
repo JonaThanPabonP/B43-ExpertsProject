@@ -1,16 +1,28 @@
 import React from 'react';
-import ButtonOK from './components/ButtonOK';
-import NavBar from './components/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
+// Import screens
+import Home from "./screens/Home";
+import Landing from "./screens/Landing";
+import NotFound from "./screens/NotFound";
+import SearchResults from "./screens/SearchResults";
+import Profile from "./screens/Profile";
+import Register from "./screens/Register";
 
 function App() {
+
     return (
-      <React.Fragment>
-        <h1>Estudiantes MINTIC</h1>
-        <h1>Grupo B43</h1>
-        <NavBar/>
-        <ButtonOK/>
-      </React.Fragment>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing/>}/>
+          <Route path="/home" element={<Home/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/search-results" element={<SearchResults/>}/>
+          <Route path="*" element={<NotFound/>}/>
+        </Routes>
+      </BrowserRouter>
     );
 }
 
