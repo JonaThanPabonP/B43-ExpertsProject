@@ -1,9 +1,12 @@
 import React from 'react'
+import LandingTopic from '../components/LandingTopic'
+import MainLanding from '../components/MainLanding'
 
 const Landing = () => {
   return (
     <>
-      <h1>Landing</h1>
+      <MainLanding/>
+      <LandingTopic/>
     </>
   )
 }
